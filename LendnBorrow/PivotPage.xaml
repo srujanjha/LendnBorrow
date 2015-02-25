@@ -1,0 +1,118 @@
+﻿<Page
+    x:Class="LendnBorrow.PivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LendnBorrow"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <CommonNavigationTransitionInfo IsStaggeringEnabled="True"/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid>
+        <Pivot x:Uid="Pivot" Title="Lend-n-Borrow" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True" SelectionChanged="pivot_SelectionChanged">
+            <!--Pivot item one-->
+            <PivotItem
+                x:Uid="PivotItem1"
+                Margin="19,14.5,0,0"
+                Header="add">
+                <!--Double line list with text wrapping-->
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Lend" Click="Next_Click" Tag="1"/>
+                        <Button Content="Borrow" Click="Next_Click" Tag="2" Margin="140,0,0,0" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                    <ScrollViewer HorizontalAlignment="Left" Height="393" VerticalAlignment="Top" Width="380">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel x:Name="Stacks" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200">
+                                <TextBlock Text="Names" FontSize="25" />
+
+                            </StackPanel>
+                            <StackPanel Width="20"/>
+                            <StackPanel x:Name="Prices" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <TextBlock Text="Amount" FontSize="25"/>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </PivotItem>
+
+            <!--Pivot item two-->
+            <PivotItem
+                x:Uid="PivotItem2"
+                Margin="19,14.5,0,0"
+                Header="lent">
+                <ScrollViewer HorizontalAlignment="Left" Height="443" VerticalAlignment="Top" Width="380">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel x:Name="Lent" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200">
+                            <TextBlock Text="Names" FontSize="25"/>
+                        </StackPanel>
+                        <StackPanel Width="20"/>
+                        <StackPanel x:Name="Amount" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Amount" FontSize="25"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                <!--Double line list no text wrapping-->
+            </PivotItem>
+            <PivotItem
+                x:Uid="PivotItem3"
+                Margin="19,14.5,0,0"
+                Header="borrowed">
+                <ScrollViewer HorizontalAlignment="Left" Height="443" VerticalAlignment="Top" Width="380">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel x:Name="Borrowed" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200">
+                            <TextBlock Text="Names" FontSize="25" />
+                            
+                        </StackPanel>
+                        <StackPanel Width="20"/>
+                        <StackPanel x:Name="Amount1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Amount" FontSize="25"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                <!--Double line list no text wrapping-->
+            </PivotItem>
+            <PivotItem
+                x:Uid="PivotItem4"
+                Margin="19,14.5,0,0"
+                Header="summary">
+                <ScrollViewer HorizontalAlignment="Left" Height="443" VerticalAlignment="Top" Width="380">
+                    <StackPanel>
+                        <TextBlock Name="total" FontSize="25"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel x:Name="All" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200">
+                            <TextBlock Text="Names" FontSize="25" />
+
+                        </StackPanel>
+                        <StackPanel Width="20"/>
+                        <StackPanel x:Name="Amount3" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TextBlock Text="Amount" FontSize="25"/>
+                        </StackPanel>
+                    </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                <!--Double line list no text wrapping-->
+            </PivotItem>
+        </Pivot>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar Background="#FFBF6B24" >
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Contact" Label="Add contacts" Click="Contact_Click"/>
+                <AppBarButton Icon="Add" Label="Add" Click="Add_Click"/>
+                <AppBarButton x:Name="Remove" Icon="Remove" Label="Remove" Click="Remove_Click"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
